@@ -9,16 +9,14 @@ public class boss{
 
 	//攻撃用の関数
 	public void magic(int mag){
-		//MPを消費して攻撃
-		for(int i=0;i<=10;i++){
-			this.mp -= mag;
-			if (mp >= 0) {
+			if (mp >= 5) {
+			//MPを減らす
+			mp -= mag;
 				Debug.Log ("魔法攻撃をした。残りMPは" + this.mp + "。");
 			} else {
 				Debug.Log ("MPが足りないため魔法が使えない。");
 			}
 		}
-	}
 
 
 	//防御用の関数
@@ -47,8 +45,11 @@ public class Test : MonoBehaviour {
 
 			//bossクラスの変数を宣言してインスタンスを代入
 			boss lastboss = new boss ();
+		//magic関数を11回ループ
+		for (int i = 0; i <= 10; i++) {
 			//攻撃用の関数を呼び出す
 			lastboss.magic (5);
+		}
 			//防御用の関数を呼び出す
 			lastboss.defence (3);
 		}
